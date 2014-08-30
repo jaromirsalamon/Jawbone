@@ -6,12 +6,15 @@ import simplejson
 
 class Jawbone(object):
 
-    def __init__(self, client_id, client_secret, redirect_uri, scope = ''):
+    def __init__(self):
 
-        self.client_id = client_id
-        self.client_secret = client_secret
-        self.redirect_uri = redirect_uri
-        self.scope = scope or 'basic_read'
+        self.config_json = open('config.json', 'r')
+        self.config = json.load(self.config_json)
+        
+        self.client_id = self.config["client_id"]
+        self.client_secret = self.config["client_secret"]
+        self.redirect_uri = self.config["redirect_uri"]
+        self.scope = self.config["scope"] or 'basic_read'
         self.base_url = "https://jawbone.com/"
 
 

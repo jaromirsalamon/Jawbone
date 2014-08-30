@@ -1,0 +1,6 @@
+{
+	"client_id":        "",
+	"client_secret":	"",
+	"redirect_uri":		"https://",
+	"scope":			"basic_read extended_read location_read friends_read mood_read move_read sleep_read meal_read weight_read generic_event_read"
+}

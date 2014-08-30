@@ -4,14 +4,9 @@ import datetime
 import urllib
 
 
-client_id = 'wW72slJ0DRE'
-client_secret = 'b5094b76bb306afdcaddece57ffd2adeda90d30f'
-redirect_uri = 'https://www.google.cz'
-scope = 'basic_read extended_read move_read'
+code = 'aV1SI82xvTp7yNo9mcqXNzAMdEzLI7j65MDz9woxiPz7xAtMk3eVufj10-ItJz4R9WnvKI-GaClbU4JadEd7yCHvFlpwU6ifgf1sDnoQ8zQXdB24evV0_J9g7lSkKu4wpmp8xnxzsxVNWa81PUm-HX1RJ4nRH1zRl5cyeb8zhWTk8lNHm2EhXTlQUbAogm-8'
 
-code = 'jF_LbmL3sgDgSYdM4CvHw3DJwaK3YdDivFJbQ_blE-seAEIFclpso_Vp7yiPhmgpW1OCWnRHe8gh7xZacFOon4H9bA56EPM0F3QduHr1dPyfYO5UpCruMKZqfMZ8c7MVTVmvNT1Jvh19USeJ0R9c0ZeXMnm_M4Vk5PJTR5thIV05UFGwKIJvvA'
-
-jb = Jawbone(client_id, client_secret, redirect_uri, scope)
+jb = Jawbone()
 
 url = jb.doAuth()
 print(url)
@@ -44,7 +39,7 @@ for move in move_items:
               'date': move['date'],
               'snapshot_image':move['snapshot_image'],
               'distance': move['details']['distance'],
-              'wo_active_time': datetime.datetime.fromtimestamp(move['details']['wo_active_time']).strftime('%H:%M:%S'),
+              'wo_active_time': move['details']['wo_active_time'], #datetime.datetime.fromtimestamp(move['details']['wo_active_time']).strftime('%H:%M:%S'),
               'tz': move['details']['tz'],
               'active_time': datetime.datetime.fromtimestamp(move['details']['active_time']).strftime('%H:%M:%S'),
               'inactive_time': datetime.datetime.fromtimestamp(move['details']['inactive_time']).strftime('%H:%M:%S'),

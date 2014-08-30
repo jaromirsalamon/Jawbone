@@ -11,11 +11,14 @@ class JawboneAPI():
 
 	"""
 
-	def __init__(self, client_id, client_secret, redirect_uri, scope = ''):
-		self.client_id = client_id
-		self.client_secret = client_secret
-		self.redirect_uri = redirect_uri
-		self.scope = scope or 'basic_read'
+	def __init__(self):
+		config_json = open('config.json', 'r')
+		config = json.load(config_json)
+		
+		self.client_id = config["client_id"]
+		self.client_secret = config["client_secret"]
+		self.redirect_uri = config["redirect_uri"]
+		self.scope = config["scope"] or 'basic_read'
 		self.base_url = "https://jawbone.com/"
 
 	# Method for getting the first authentication code
